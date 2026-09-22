@@ -37,14 +37,14 @@ export class AuthController {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+sameSite: 'lax',
       maxAge: 15 * 60 * 1000,
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+sameSite: 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -66,7 +66,7 @@ export class AuthController {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+sameSite: 'lax',
       maxAge: 15 * 60 * 1000,
     });
 
@@ -86,13 +86,14 @@ export class AuthController {
     res.clearCookie('access_token', {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+sameSite: 'lax',
     });
 
     res.clearCookie('refresh_token', {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+sameSite: 'lax',
+
     });
 
     return { message: 'Logged out successfully' };

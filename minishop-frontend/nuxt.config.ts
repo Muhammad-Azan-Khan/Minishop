@@ -21,9 +21,16 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase:
-        import.meta.env.NUXT_PUBLIC_API_BASE ||
-        "http://localhost:3000",
+      apiBase: import.meta.env.PROD
+        ? "/api"
+        : "http://localhost:3000",
+    },
+  },
+
+  routeRules: {
+    "/api/**": {
+      proxy:
+        "https://minishop-bxsr3sgb60kd.muhammad-azan-khan.deno.net/**",
     },
   },
 
