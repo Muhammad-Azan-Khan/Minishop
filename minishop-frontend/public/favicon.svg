@@ -1,0 +1,130 @@
+<svg
+  viewBox="70 55 260 270"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <clipPath id="awning-clip">
+      <path
+        d="M130 80 H270 L300 120
+           A16.67 16.67 0 0 1 266.67 120
+           A16.67 16.67 0 0 1 233.33 120
+           A16.67 16.67 0 0 1 200 120
+           A16.67 16.67 0 0 1 166.67 120
+           A16.67 16.67 0 0 1 133.33 120
+           A16.67 16.67 0 0 1 100 120
+           Z"
+      />
+    </clipPath>
+  </defs>
+
+  <rect
+    x="120"
+    y="125"
+    width="160"
+    height="175"
+    rx="6"
+    fill="none"
+    stroke="#f5f0e1"
+    stroke-width="8"
+  />
+
+  <g
+    fill="none"
+    stroke="#f5f0e1"
+    stroke-width="5"
+  >
+    <rect
+      x="134"
+      y="200"
+      width="32"
+      height="42"
+      rx="3"
+    />
+
+    <path d="M150 200 V242 M134 221 H166" />
+
+    <rect
+      x="234"
+      y="200"
+      width="32"
+      height="42"
+      rx="3"
+    />
+
+    <path d="M250 200 V242 M234 221 H266" />
+  </g>
+
+  <path
+    d="M175 300 V228 a25 25 0 0 1 50 0 V300 Z"
+    fill="#d9a028"
+  />
+
+  <circle
+    cx="214"
+    cy="266"
+    r="4"
+    fill="#17302e"
+  />
+
+  <g clip-path="url(#awning-clip)">
+    <rect
+      x="100"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#f5f0e1"
+    />
+
+    <rect
+      x="133.33"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#d9a028"
+    />
+
+    <rect
+      x="166.67"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#f5f0e1"
+    />
+
+    <rect
+      x="200"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#d9a028"
+    />
+
+    <rect
+      x="233.33"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#f5f0e1"
+    />
+
+    <rect
+      x="266.67"
+      y="70"
+      width="33.33"
+      height="70"
+      fill="#d9a028"
+    />
+  </g>
+
+  <path
+    d="M90 300 H310"
+    stroke="#f5f0e1"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M320 90 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z"
+    fill="#d9a028"
+  />
+</svg>
