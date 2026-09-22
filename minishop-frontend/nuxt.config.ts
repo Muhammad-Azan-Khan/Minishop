@@ -1,4 +1,20 @@
 export default defineNuxtConfig({
+  $development: {
+    runtimeConfig: {
+      public: {
+        apiBase: "http://localhost:3000",
+      },
+    },
+  },
+
+  $production: {
+    runtimeConfig: {
+      public: {
+        apiBase: "/api",
+      },
+    },
+  },
+
   compatibilityDate: "2026-07-01",
 
   devtools: {
@@ -16,14 +32,6 @@ export default defineNuxtConfig({
       compilerOptions: {
         module: "ESNext",
       },
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      apiBase: import.meta.env.PROD
-        ? "/api"
-        : "http://localhost:3000",
     },
   },
 
