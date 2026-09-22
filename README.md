@@ -1,5 +1,21 @@
 <div align="center">
-  <img src="minishop-frontend/public/minishoplogo.png" alt="MiniShop logo" width="150" />
+  <div align="center">
+
+  <img src="minishop-frontend/public/minishoplogo.png" alt="MiniShop Logo" width="180" />
+
+  <h1>MiniShop</h1>
+
+  <p>A full-stack e-commerce application for browsing products, managing a cart, placing orders, and administering the store catalog.</p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt.js&logoColor=white" alt="Nuxt 4" />
+    <img src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" alt="Vue 3" />
+    <img src="https://img.shields.io/badge/NestJS-11-E0234E?logo=nestjs&logoColor=white" alt="NestJS 11" />
+    <img src="https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  </p>
+
+</div>
 
   <h1>MiniShop</h1>
 
