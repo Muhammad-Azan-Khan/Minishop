@@ -1,4 +1,12 @@
-import { Body, Controller, Post, Req, Res, UseGuards,Get } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -24,17 +32,19 @@ export class AuthController {
     const { accessToken, refreshToken, message } =
       await this.authService.login(loginDto);
 
+    const isProduction = process.env.NODE_ENV === 'production';
+
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
       maxAge: 15 * 60 * 1000,
     });
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -51,10 +61,12 @@ export class AuthController {
     const { accessToken } =
       await this.authService.refreshAccessToken(refreshToken);
 
+    const isProduction = process.env.NODE_ENV === 'production';
+
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
       maxAge: 15 * 60 * 1000,
     });
 
@@ -63,11 +75,25 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Post('logout')
-  async logout(@Req() req: any, @Res({ passthrough: true }) res: Response) {
+  async logout(
+    @Req() req: any,
+    @Res({ passthrough: true }) res: Response,
+  ) {
     await this.authService.logout(req.user.userId);
 
-    res.clearCookie('access_token');
-    res.clearCookie('refresh_token');
+    const isProduction = process.env.NODE_ENV === 'production';
+
+    res.clearCookie('access_token', {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+    });
+
+    res.clearCookie('refresh_token', {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+    });
 
     return { message: 'Logged out successfully' };
   }
@@ -78,12 +104,13 @@ export class AuthController {
   }
 
   @Post('forgot-password')
-  forgotpassword(@Body() dto:ForgotPasswordDto) {
+  forgotpassword(@Body() dto: ForgotPasswordDto) {
     return this.authService.forgotPassword(dto);
   }
-   @UseGuards(JwtAuthGuard)
-    @Get('me')
-    me(@Req() req: any) {
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
+  me(@Req() req: any) {
     return req.user;
   }
 }
