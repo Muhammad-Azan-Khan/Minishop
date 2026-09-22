@@ -21,7 +21,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: "http://localhost:3000",
+      apiBase:
+        import.meta.env.NUXT_PUBLIC_API_BASE ||
+        "http://localhost:3000",
     },
   },
 
@@ -32,11 +34,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "MiniShop",
-
       htmlAttrs: {
         class: "scroll-smooth",
       },
-
       link: [
         {
           rel: "icon",
